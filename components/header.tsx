@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,9 +13,12 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">⚫</span>
-          </div>
+          <Image
+            src="/anonchat-logo.webp"
+            alt="AnonChat Logo"
+            width={34}
+            height={34}
+          />
           <span className="text-xl font-bold gradient-text">AnonChat</span>
         </Link>
 
@@ -34,7 +38,7 @@ export function Header() {
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
           <button className="px-4 py-2 text-sm rounded-lg hover:bg-muted transition-colors">Sign In</button>
-          <button className="px-6 py-2 text-sm rounded-lg bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold hover:opacity-90 transition-opacity">
+          <button className="px-6 py-2 text-sm rounded-lg bg-linear-to-r from-primary to-accent text-primary-foreground font-semibold hover:opacity-90 transition-opacity">
             Join Now
           </button>
         </div>
@@ -63,7 +67,7 @@ export function Header() {
             </Link>
             <div className="pt-3 border-t border-border/50 space-y-2">
               <button className="w-full px-4 py-2 text-sm rounded-lg hover:bg-muted transition-colors">Sign In</button>
-              <button className="w-full px-4 py-2 text-sm rounded-lg bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold">
+              <button className="w-full px-4 py-2 text-sm rounded-lg bg-linear-to-r from-primary to-accent text-primary-foreground font-semibold">
                 Join Now
               </button>
             </div>
