@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
+import ConnectWallet from "./wallet-connector"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -13,20 +14,31 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">⚫</span>
+            <span className="text-primary-foreground font-bold text-sm">
+              ⚫
+            </span>
           </div>
           <span className="text-xl font-bold gradient-text">AnonChat</span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="#features" className="text-sm hover:text-primary transition-colors">
+          <Link
+            href="#features"
+            className="text-sm hover:text-primary transition-colors"
+          >
             Features
           </Link>
-          <Link href="#security" className="text-sm hover:text-primary transition-colors">
+          <Link
+            href="#security"
+            className="text-sm hover:text-primary transition-colors"
+          >
             Security
           </Link>
-          <Link href="#community" className="text-sm hover:text-primary transition-colors">
+          <Link
+            href="#community"
+            className="text-sm hover:text-primary transition-colors"
+          >
             Community
           </Link>
         </div>
@@ -34,12 +46,11 @@ export function Header() {
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
           {/* Connect Wallet button  */}
-          <button
-            onClick={() => alert("Connect Wallet")}
-            aria-label="Connect Wallet"
-            className="w-full cursor-pointer px-4 py-2 text-sm rounded-lg bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold">
-            Connect Wallet
-          </button>
+          <div
+            className="w-full cursor-pointer px-4 py-2 text-sm rounded-lg  text-primary-foreground font-semibold"
+          >
+            <ConnectWallet />
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -55,30 +66,34 @@ export function Header() {
       {isOpen && (
         <div className="md:hidden border-t border-border/50 bg-background/95 backdrop-blur">
           <div className="px-4 py-4 space-y-3">
-            <Link href="#features" className="block text-sm hover:text-primary transition-colors">
+            <Link
+              href="#features"
+              className="block text-sm hover:text-primary transition-colors"
+            >
               Features
             </Link>
-            <Link href="#security" className="block text-sm hover:text-primary transition-colors">
+            <Link
+              href="#security"
+              className="block text-sm hover:text-primary transition-colors"
+            >
               Security
             </Link>
-            <Link href="#community" className="block text-sm hover:text-primary transition-colors">
+            <Link
+              href="#community"
+              className="block text-sm hover:text-primary transition-colors"
+            >
               Community
             </Link>
 
-
-
             <div className="pt-3 border-t border-border/50 space-y-2">
               {/* Connect Wallet button  */}
-              <button
-                onClick={() => alert("Connect Wallet")}
-                aria-label="Connect Wallet"
-                className="w-full cursor-pointer px-4 py-2 text-sm rounded-lg bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold">
-                Connect Wallet
-              </button>
+              <div className="w-full cursor-pointer px-4 py-2 text-sm rounded-lg bg-gradient-to-r from-primary to-accent text-primary-foreground font-semibold">
+                <ConnectWallet />
+              </div>
             </div>
           </div>
         </div>
       )}
     </header>
-  )
+  );
 }
